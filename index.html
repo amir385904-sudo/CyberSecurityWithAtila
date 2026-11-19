@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>امنیت سایبری | سپر دیجیتال شما</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f5f8fb;--surface:#fff;--text:#0f1b2d;--muted:#54627a;--accent:#0a7cff;--accent2:#00b377;--border:#dbe3ee;--hero:#e6f0ff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#000000;--surface:#121212;--text:#e8eef8;--muted:#9aa9c0;--accent:#4aa3ff;--accent2:#2fd69b;--border:#242424;--hero:#111111}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#000000;--surface:#121212;--text:#e8eef8;--muted:#9aa9c0;--accent:#4aa3ff;--accent2:#2fd69b;--border:#242424;--hero:#111111}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Vazirmatn,Tahoma,sans-serif;line-height:1.9}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+header.hero{background:var(--hero);padding:56px 0 48px;text-align:center;border-bottom:1px solid var(--border)}
+.shield{font-size:56px}
+h1{font-size:clamp(28px,6vw,46px);font-weight:900;margin:8px 0}
+h1 span{color:var(--accent)}
+.hero p{color:var(--muted);max-width:560px;margin:0 auto 24px}
+.btn{display:inline-block;background:var(--accent);color:#fff;padding:10px 26px;border-radius:999px;text-decoration:none;font-weight:700}
+section{padding:44px 0}
+h2{font-size:26px;margin:0 0 20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:20px}
+.card .ic{font-size:30px}
+.card h3{margin:6px 0;font-size:18px}
+.card p{margin:0;color:var(--muted);font-size:15px}
+ol.tips{padding:0;margin:0;list-style:none;counter-reset:t}
+ol.tips li{counter-increment:t;background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:14px 56px 14px 16px;margin-bottom:10px;position:relative}
+ol.tips li::before{content:counter(t);position:absolute;right:14px;top:14px;width:28px;height:28px;border-radius:50%;background:var(--accent2);color:#fff;text-align:center;line-height:28px;font-weight:700}
+.checker{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:20px}
+.checker input{width:100%;padding:12px 14px;border-radius:10px;border:1px solid var(--border);background:var(--bg);color:var(--text);font:inherit;direction:ltr;text-align:left}
+.bar{height:10px;border-radius:6px;background:var(--border);margin:14px 0 8px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:#e5484d;transition:width .3s,background .3s}
+#msg{margin:0;color:var(--muted);font-size:15px}
+footer{text-align:center;color:var(--muted);padding:28px 0;border-top:1px solid var(--border);font-size:14px}
+summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+summary::-webkit-details-marker{display:none}
+.arr{flex:none;width:32px;height:32px;border-radius:50%;background:var(--hero);border:1px solid var(--border);position:relative;transition:transform .25s}
+.arr::after{content:"";position:absolute;left:11px;top:9px;width:8px;height:8px;border-left:2px solid var(--accent);border-bottom:2px solid var(--accent);transform:rotate(-45deg)}
+details[open]>summary .arr{transform:rotate(-90deg)}
+.more{margin-top:14px;padding-top:14px;border-top:1px dashed var(--border);color:var(--text);font-size:15px}
+.more b{color:var(--accent)}
+.more ul{margin:6px 0 0;padding-right:20px}
+.grid{align-items:start}
+ol.tips li{padding-left:16px}
+ol.tips summary span.t{font-weight:700}
+#themeBtn{position:fixed;left:14px;top:calc(env(safe-area-inset-top,0px) + 14px);z-index:20;width:44px;height:44px;border-radius:50%;border:1px solid var(--border);background:var(--surface);color:var(--text);font-size:22px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,.12)}
+#langBtn{position:fixed;left:66px;top:calc(env(safe-area-inset-top,0px) + 14px);z-index:20;width:44px;height:44px;border-radius:50%;border:1px solid var(--border);background:var(--surface);color:var(--text);cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(0,0,0,.12)}
+#langBtn svg{width:22px;height:22px}
+#themeBtn:active,#langBtn:active{transform:scale(.94)}
+#themeBtn:active{transform:scale(.94)}
+.cta{text-align:center;background:var(--hero);border:1px solid var(--border);border-radius:20px;padding:32px 20px}
+.cta h2{margin:6px 0 8px}
+.cta p{color:var(--muted);margin:0 0 18px}
+.back{display:inline-block;margin-bottom:16px;color:var(--accent);text-decoration:none;font-weight:700}
+.faq details.card{margin-bottom:10px}
+.faq h3{margin:0;font-size:17px}
+.gen{margin-bottom:40px}
+.gbox{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:20px}
+.gbox label{display:block;margin-bottom:8px;cursor:pointer}
+.gbox input[type=range]{width:100%;accent-color:var(--accent)}
+.gbox input[type=checkbox]{margin-left:8px;accent-color:var(--accent)}
+.gopts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:2px 12px;margin:12px 0}
+#gOut{width:100%;padding:12px 14px;border-radius:10px;border:1px solid var(--border);background:var(--bg);color:var(--text);font:600 18px monospace;direction:ltr;text-align:left}
+.gacts{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.btn-b{border:0;font:inherit;cursor:pointer}
+.btn-ghost{background:var(--hero);color:var(--accent);border:1px solid var(--border)}
+#gMsg{margin:10px 0 0;color:var(--muted);font-size:14px}
+#claudeFab{position:fixed;left:14px;bottom:calc(env(safe-area-inset-bottom,0px) + 16px);z-index:20;display:none;align-items:center;justify-content:center;width:50px;height:50px;background:var(--surface);border:1px solid var(--border);border-radius:50%;text-decoration:none;color:var(--text);box-shadow:0 4px 16px rgba(0,0,0,.25);transition:transform .2s}
+#claudeFab.show{display:flex}
+#claudeFab:active{transform:scale(.96)}
+#claudeFab .cicon{width:34px;height:34px;border-radius:50%;background:#d97757;display:flex;align-items:center;justify-content:center;flex:none}
+#claudeFab .cicon svg{width:19px;height:19px}
+
+/* بهبود بصری حرفه‌ای — بدون تغییر رفتار یا تنظیمات موجود */
+html{scroll-behavior:smooth}
+body{letter-spacing:.1px}
+.wrap{max-width:1040px}
+eyebrow,.eyebrow{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.5px;color:var(--accent);background:color-mix(in srgb, var(--accent) 14%, transparent);padding:5px 14px;border-radius:999px;margin-bottom:14px}
+header.hero{position:relative;overflow:hidden;background:radial-gradient(circle at 50% 0%, color-mix(in srgb, var(--accent) 16%, var(--hero)) 0%, var(--hero) 60%);padding:72px 0 60px;border-bottom:1px solid var(--border)}
+header.hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(color-mix(in srgb, var(--accent) 22%, transparent) 1px, transparent 1px);background-size:26px 26px;opacity:.35;pointer-events:none}
+header.hero .wrap{position:relative}
+.shield{font-family:'Courier New',monospace;font-size:clamp(16px,4vw,26px);font-weight:700;color:var(--accent);direction:ltr;display:inline-block;filter:drop-shadow(0 6px 18px color-mix(in srgb, var(--accent) 35%, transparent))}
+h1{letter-spacing:-.5px}
+.hero p{font-size:16.5px}
+.btn{box-shadow:0 8px 22px color-mix(in srgb, var(--accent) 40%, transparent);transition:transform .2s,box-shadow .2s;position:relative}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 26px color-mix(in srgb, var(--accent) 48%, transparent)}
+.btn:active{transform:translateY(0)}
+h2{position:relative;padding-right:16px}
+h2::before{content:"";position:absolute;right:0;top:4px;bottom:4px;width:5px;border-radius:4px;background:linear-gradient(180deg,var(--accent),var(--accent2))}
+.card{border-radius:18px;transition:transform .25s,box-shadow .25s,border-color .25s;box-shadow:0 1px 2px rgba(0,0,0,.06),-10px 10px 28px -8px rgba(168,85,247,.38),10px -8px 26px -10px rgba(168,85,247,.22)}
+.card:hover{transform:translateY(-4px);box-shadow:0 14px 30px rgba(0,0,0,.14),-12px 14px 32px -6px rgba(168,85,247,.45),12px -10px 30px -8px rgba(168,85,247,.28);border-color:color-mix(in srgb, var(--accent) 35%, var(--border))}
+.card .ic{width:52px;height:52px;display:flex;align-items:center;justify-content:center;border-radius:14px;background:color-mix(in srgb, var(--accent) 12%, var(--hero));font-size:26px;margin-bottom:4px}
+.card h3{font-size:17.5px;font-weight:700}
+ol.tips li{border-radius:14px;transition:box-shadow .2s,border-color .2s;box-shadow:-8px 8px 24px -8px rgba(168,85,247,.32)}
+ol.tips li:hover{box-shadow:0 8px 20px rgba(0,0,0,.1),-10px 10px 28px -8px rgba(168,85,247,.4);border-color:color-mix(in srgb, var(--accent2) 35%, var(--border))}
+ol.tips li::before{box-shadow:0 4px 10px color-mix(in srgb, var(--accent2) 45%, transparent)}
+.checker,.gbox{border-radius:18px;box-shadow:0 1px 2px rgba(0,0,0,.06),-10px 10px 30px -8px rgba(168,85,247,.35),10px -8px 26px -10px rgba(168,85,247,.2)}
+.cta{position:relative;overflow:hidden;background:radial-gradient(circle at 50% 0%, color-mix(in srgb, var(--accent) 14%, var(--hero)), var(--hero));box-shadow:-12px 12px 34px -8px rgba(168,85,247,.32),12px -10px 30px -10px rgba(168,85,247,.2)}
+footer{padding:40px 0 32px;border-top:1px solid var(--border);line-height:1.8}
+.faq details.card summary h3{font-weight:700}
+@media(max-width:480px){header.hero{padding:56px 0 44px}h1{font-size:30px}}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:translateY(0)}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+.cardlink{cursor:pointer;outline:none}
+.cardlink:hover,.cardlink:focus-visible{border-color:color-mix(in srgb, var(--accent) 45%, var(--border))}
+.cardlink:focus-visible{box-shadow:0 0 0 3px color-mix(in srgb, var(--accent) 35%, transparent)}
+.faqcard h3{margin:0;font-size:17px;position:relative;padding-left:26px}
+.faqcard h3::after{content:"←";position:absolute;left:0;top:0;color:var(--accent);font-weight:400}
+li.tiplink{list-style:none;position:relative;cursor:pointer}
+li.tiplink:hover{box-shadow:0 8px 20px rgba(0,0,0,.1),-10px 10px 28px -8px rgba(168,85,247,.4)}
+li.tiplink::after{content:"←";position:absolute;left:16px;top:16px;color:var(--accent);font-size:18px}
+.dhead{display:flex;align-items:flex-start;gap:16px;margin-bottom:22px}
+.dicon{flex:none;width:58px;height:58px;border-radius:16px;background:color-mix(in srgb, var(--accent) 14%, var(--hero));display:flex;align-items:center;justify-content:center;font-size:30px}
+#dTitle{margin:0 0 6px}
+.dsub{margin:0;color:var(--muted);font-size:15.5px}
+.dbody{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:22px;box-shadow:-10px 10px 30px -8px rgba(168,85,247,.32),10px -8px 26px -10px rgba(168,85,247,.18)}
+.dbody p{margin:0 0 14px}
+.dbody p:last-child{margin-bottom:0}
+.dbody ul{margin:6px 0 14px;padding-right:20px}
+.dbody b{color:var(--accent)}
+.fade-up{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}
+.fade-up.in{opacity:1;transform:translateY(0)}
+.quiz-q{background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:18px;margin-bottom:14px}
+.quiz-q p.qtext{font-weight:700;margin:0 0 12px}
+.quiz-opt{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;border:1px solid var(--border);margin-bottom:8px;cursor:pointer;transition:border-color .2s,background .2s}
+.quiz-opt:hover{border-color:color-mix(in srgb, var(--accent) 40%, var(--border))}
+.quiz-opt input{accent-color:var(--accent)}
+.quiz-opt.correct{border-color:var(--accent2);background:color-mix(in srgb, var(--accent2) 14%, transparent)}
+.quiz-opt.wrong{border-color:#e5484d;background:color-mix(in srgb, #e5484d 14%, transparent)}
+#quizResult{margin-top:16px;padding:16px;border-radius:14px;background:var(--hero);display:none;font-weight:700;text-align:center}
+.checklist{list-style:none;padding:0;margin:0}
+.checklist li{display:flex;align-items:flex-start;gap:12px;padding:12px 14px;border:1px solid var(--border);border-radius:12px;margin-bottom:8px;background:var(--surface)}
+.checklist input[type=checkbox]{width:20px;height:20px;flex:none;margin-top:2px;accent-color:var(--accent2)}
+.checklist li.checked{opacity:.6;text-decoration:line-through}
+.printbtn{margin-top:16px}
+.promocard{display:block;text-decoration:inherit;color:inherit}
+.promocard h3{margin:4px 0 6px}
+@media print{
+ body *{visibility:hidden}
+ #printArea,#printArea *{visibility:visible}
+ #printArea{position:absolute;top:0;left:0;width:100%}
+ #themeBtn,#langBtn,#claudeFab,.bottomnav{display:none!important}
+}
+body{padding-bottom:calc(env(safe-area-inset-bottom,0px) + 88px)}
+#claudeFab{bottom:calc(env(safe-area-inset-bottom,0px) + 94px)}
+.bottomnav{position:fixed;left:0;right:0;bottom:0;z-index:30;display:flex;align-items:flex-end;justify-content:space-around;background:var(--surface);border-top:1px solid var(--border);padding:8px 4px calc(env(safe-area-inset-bottom,0px) + 8px);box-shadow:0 -6px 20px rgba(0,0,0,.18)}
+.navitem{display:flex;flex-direction:column;align-items:center;gap:3px;flex:1;background:none;border:0;color:var(--muted);font-family:inherit;font-size:11.5px;cursor:pointer;padding:6px 2px;border-radius:12px;transition:background .2s,color .2s;text-decoration:none}
+.navitem svg{width:22px;height:22px}
+.navitem.active{color:var(--accent);background:color-mix(in srgb, var(--accent) 14%, transparent)}
+.navitem.navcenter{flex:0 0 auto;width:66px;margin-top:-28px;background:none;padding:0}
+.navcenter .navicon{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#22d3c7,#4aa3ff);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,.32);border:4px solid var(--bg);margin-bottom:2px}
+.navcenter .navicon svg{width:24px;height:24px;color:#fff}
+.navcenter span{color:var(--accent);font-weight:700;font-size:11.5px}
+</style>
+</head>
+<body>
+<button id="themeBtn" type="button" aria-label="تغییر پوسته"></button>
+<button id="langBtn" type="button" aria-label="ترجمه به انگلیسی"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.8 4 6.2 4 9s-1.5 6.2-4 9c-2.5-2.8-4-6.2-4-9s1.5-6.2 4-9z"/></svg></button>
+<a id="claudeFab" href="https://claude.ai" target="_blank" rel="noopener" aria-label="هوش مصنوعی">
+<span class="cicon"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 3L13.8 9.2L20 11L13.8 12.8L12 19L10.2 12.8L4 11L10.2 9.2L12 3Z" fill="#fff"/></svg></span>
+</a>
+<main id="home">
+<header class="hero"><div class="wrap">
+<span class="eyebrow" id="txtEyebrow">راهنمای جامع امنیت سایبری</span>
+<div class="shield">&lt;CyberSecurity = "true"/&gt;</div>
+<div class="shield" style="margin-top:6px">&lt;With &lt;Atila&gt;/&gt;</div>
+<h1 id="heroTitle">امنیت سایبری؛ <span>سپر دیجیتال شما</span></h1>
+<p id="heroDesc">با شناخت تهدیدهای رایج و رعایت چند عادت ساده، حساب‌ها و اطلاعات شخصی‌تان را در برابر هکرها ایمن نگه دارید.</p>
+</div></header>
+
+<section><div class="wrap"><div class="cta"><div class="ic" style="font-size:40px">🔑</div><h2 id="ctaTitle">رمز عبور شما چقدر امن است؟</h2><p id="ctaDesc">با یک آزمایش سریع، قدرت یک رمز نمونه را بسنجید.</p><a class="btn" id="ctaBtn" href="#password">تست رمز عبور</a></div></div></section>
+
+<section id="threats"><div class="wrap">
+<h2 id="h2Threats">تهدیدهای رایج</h2>
+<div class="grid">
+<div class="card cardlink" data-d="0" role="button" tabindex="0"><div class="ic">🎣</div><h3>فیشینگ</h3><p>پیام یا ایمیل جعلی که شما را به وارد کردن رمز یا اطلاعات بانکی در سایت تقلبی ترغیب می‌کند.</p></div>
+<div class="card cardlink" data-d="1" role="button" tabindex="0"><div class="ic">🦠</div><h3>بدافزار</h3><p>نرم‌افزارهای مخرب مانند ویروس و جاسوس‌افزار که پنهانی روی دستگاه نصب می‌شوند.</p></div>
+<div class="card cardlink" data-d="2" role="button" tabindex="0"><div class="ic">🔒</div><h3>باج‌افزار</h3><p>فایل‌های شما را رمزگذاری می‌کند و برای بازگرداندن آن‌ها پول طلب می‌کند.</p></div>
+<div class="card cardlink" data-d="3" role="button" tabindex="0"><div class="ic">📶</div><h3>وای‌فای عمومی</h3><p>شبکه‌های باز و ناامن می‌توانند ترافیک شما را در معرض شنود قرار دهند.</p></div>
+</div></div></section>
+
+<section><div class="wrap">
+<h2 id="h2Hack">هکرها چطور به دستگاه‌های ما نفوذ می‌کنند؟</h2>
+<div class="grid">
+<div class="card cardlink" data-d="4" role="button" tabindex="0"><div class="ic">📱</div><h3>گوشی همراه</h3><p>گوشی‌های اندروید و آیفون هم از حملات در امان نیستند.</p></div>
+<div class="card cardlink" data-d="5" role="button" tabindex="0"><div class="ic">📡</div><h3>شبکه Wi-Fi</h3><p>رمز ضعیف یا تنظیمات قدیمی روتر راه ورود باز می‌کند.</p></div>
+<div class="card cardlink" data-d="6" role="button" tabindex="0"><div class="ic">💻</div><h3>لپ‌تاپ و کامپیوتر</h3><p>نرم‌افزار یا به‌روزرسانی نشده رایج‌ترین راه نفوذ هستند.</p></div>
+<div class="card cardlink" data-d="7" role="button" tabindex="0"><div class="ic">🧦</div><h3>IoT و دستگاه‌های هوشمند</h3><p>دوربین‌ها، دوربین‌های امنیتی و سایر وسایل متصل هم هدف هستند.</p></div>
+</div>
+<div class="checker" style="margin-top:16px">
+<p style="margin:0 0 6px"><b id="warnLabel">نشانه‌های هشداردهنده:</b></p>
+<p id="warnDesc" style="margin:0;color:var(--muted);font-size:15px">تخلیه سریع باتری، داغ شدن یا کند شدن ناگهانی دستگاه، نصب برنامه‌هایی که خودتان نصب نکرده‌اید، افزایش غیرعادی مصرف دیتا، باز شدن خودکار پنجره‌ها یا دوربین/میکروفون، و قطعی یا کندی غیرمعمول Wi-Fi.</p>
+</div>
+</div></section>
+
+<section><div class="wrap">
+<h2 id="h2Tips">چند عادت امنیتی ساده</h2>
+<ol class="tips">
+<li class="cardlink tiplink" data-d="19" role="button" tabindex="0"><span class="t">برای هر حساب یک رمز عبور طولانی و متفاوت بسازید و از مدیر رمز عبور استفاده کنید.</span></li>
+<li class="cardlink tiplink" data-d="20" role="button" tabindex="0"><span class="t">تأیید هویت دو مرحله‌ای را روی ایمیل و شبکه‌های اجتماعی فعال کنید.</span></li>
+<li class="cardlink tiplink" data-d="21" role="button" tabindex="0"><span class="t">قبل از کلیک روی هر لینک، آدرس فرستنده و سایت را با دقت بررسی کنید.</span></li>
+<li class="cardlink tiplink" data-d="22" role="button" tabindex="0"><span class="t">سیستم‌عامل و برنامه‌ها را همیشه به‌روز نگه دارید.</span></li>
+<li class="cardlink tiplink" data-d="23" role="button" tabindex="0"><span class="t">از فایل‌های مهم خود به‌طور منظم نسخه پشتیبان تهیه کنید.</span></li>
+</ol></div></section>
+
+<section><div class="wrap">
+<h2 id="h2Pillars">سه ستون امنیت اطلاعات</h2>
+<div class="grid">
+<div class="card cardlink" data-d="8" role="button" tabindex="0"><div class="ic">🤐</div><h3>محرمانگی</h3><p>فقط افراد مجاز باید به اطلاعات دسترسی داشته باشند.</p></div>
+<div class="card cardlink" data-d="9" role="button" tabindex="0"><div class="ic">✅</div><h3>یکپارچگی</h3><p>اطلاعات نباید بدون اجازه تغییر کند یا خراب شود.</p></div>
+<div class="card cardlink" data-d="10" role="button" tabindex="0"><div class="ic">⚡</div><h3>دسترس‌پذیری</h3><p>اطلاعات و سرویس‌ها باید هر وقت لازم است در دسترس باشند.</p></div>
+</div></div></section>
+
+<section><div class="wrap">
+<h2 id="h2Chart">روند رشد حملات سایبری در جهان</h2>
+<div class="checker" style="overflow-x:auto">
+<svg viewBox="0 0 760 340" style="width:100%;height:auto;min-width:560px;direction:ltr" role="img" aria-label="نمودار روند صعودی حملات سایبری از سال ۱۳۹۰ تا امروز">
+<defs>
+<linearGradient id="chartFill" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0%" stop-color="var(--accent)" stop-opacity="0.45"/>
+<stop offset="100%" stop-color="var(--accent)" stop-opacity="0"/>
+</linearGradient>
+</defs>
+<g stroke="var(--border)" stroke-width="1">
+<line x1="50" y1="40" x2="50" y2="270"/>
+<line x1="50" y1="270" x2="730" y2="270"/>
+<line x1="50" y1="212.5" x2="730" y2="212.5" stroke-dasharray="4 4"/>
+<line x1="50" y1="155" x2="730" y2="155" stroke-dasharray="4 4"/>
+<line x1="50" y1="97.5" x2="730" y2="97.5" stroke-dasharray="4 4"/>
+<line x1="50" y1="40" x2="730" y2="40" stroke-dasharray="4 4"/>
+</g>
+<path d="M50,245 L146,236 L242,220 L338,198 L434,172 L530,138 L626,95 L722,46 L722,270 L50,270 Z" fill="url(#chartFill)"/>
+<polyline points="50,245 146,236 242,220 338,198 434,172 530,138 626,95 722,46" fill="none" stroke="var(--accent)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+<g fill="var(--accent)">
+<circle cx="50" cy="245" r="5"/><circle cx="146" cy="236" r="5"/><circle cx="242" cy="220" r="5"/><circle cx="338" cy="198" r="5"/><circle cx="434" cy="172" r="5"/><circle cx="530" cy="138" r="5"/><circle cx="626" cy="95" r="5"/><circle cx="722" cy="46" r="5"/>
+</g>
+<g fill="var(--muted)" font-size="15" font-family="Vazirmatn, Tahoma, sans-serif" text-anchor="middle">
+<text id="yr0" x="50" y="292">۱۳۹۰</text>
+<text id="yr1" x="146" y="292">۱۳۹۲</text>
+<text id="yr2" x="242" y="292">۱۳۹۴</text>
+<text id="yr3" x="338" y="292">۱۳۹۶</text>
+<text id="yr4" x="434" y="292">۱۳۹۸</text>
+<text id="yr5" x="530" y="292">۱۴۰۰</text>
+<text id="yr6" x="626" y="292">۱۴۰۲</text>
+<text id="yr7" x="722" y="292">۱۴۰۴</text>
+</g>
+<text id="chartLabel" x="40" y="24" fill="var(--text)" font-size="16" font-weight="700" font-family="Vazirmatn, Tahoma, sans-serif" text-anchor="start">روند کلی (تخمینی)</text>
+</svg>
+</div>
+<p id="chartDesc" style="color:var(--muted);font-size:14px;margin-top:12px">این نمودار برای نمایش روند کلی و صعودی حملات سایبری در جهان از سال ۱۳۹۰ تا امروز ترسیم شده و بر اساس میانگین گزارش‌های سالانه شرکت‌ها و نهادهای امنیتی جهانی است؛ عدد دقیق و رسمی برای مقایسه سال‌به‌سال نیست، بلکه شکل کلی رشد را نشان می‌دهد. طبق این گزارش‌ها، رشد در سال‌های اخیر به‌ویژه با گسترش اینترنت اشیا، کار از راه دور و استفاده از هوش مصنوعی در حملات شتاب گرفته است.</p>
+</div></section>
+
+<section><div class="wrap">
+<h2 id="h2Glossary">واژه‌نامه</h2>
+<div class="grid">
+<div class="card cardlink" data-d="11" role="button" tabindex="0"><div class="ic">🕶️</div><h3>VPN</h3><p>شبکه خصوصی مجازی که ارتباط شما را رمزگذاری می‌کند.</p></div>
+<div class="card cardlink" data-d="12" role="button" tabindex="0"><div class="ic">🧱</div><h3>فایروال</h3><p>مانعی که ترافیک مشکوک را قبل از رسیدن به دستگاه شما فیلتر می‌کند.</p></div>
+<div class="card cardlink" data-d="13" role="button" tabindex="0"><div class="ic">🔐</div><h3>رمزنگاری</h3><p>تبدیل اطلاعات به شکلی که بدون کلید قابل خواندن نباشد.</p></div>
+<div class="card cardlink" data-d="14" role="button" tabindex="0"><div class="ic">🌊</div><h3>حمله DDoS</h3><p>هجوم حجم زیادی درخواست برای از کار انداختن یک سرویس.</p></div>
+</div></div></section>
+
+<section><div class="wrap">
+<h2 id="h2IfHacked">اگر هک شدید، چه کنید؟</h2>
+<ol class="tips">
+<li id="ih1">آرام بمانید و فوراً رمز حساب آلوده را از یک دستگاه سالم تغییر دهید.</li>
+<li id="ih2">اگر رمز مشابه جای دیگری استفاده کرده‌اید، آن را هم عوض کنید.</li>
+<li id="ih3">تأیید هویت دو مرحله‌ای را فعال و نشست‌های فعال (دستگاه‌های وارد شده) را ببندید.</li>
+<li id="ih4">دستگاه را با یک آنتی‌ویروس معتبر اسکن کنید و برنامه‌های ناشناس را حذف کنید.</li>
+<li id="ih5">اگر اطلاعات بانکی درگیر است، با بانک تماس بگیرید و کارت را مسدود کنید. در صورت لزوم به مراجع رسمی گزارش دهید.</li>
+</ol></div></section>
+
+<section><div class="wrap">
+<div class="grid">
+<a class="card promocard" href="#quiz">
+<div class="ic">🧠</div>
+<h3 id="promoQuizTitle">خودت را امتحان کن</h3>
+<p id="promoQuizDesc">با یک آزمون کوتاه ۶ سؤالی، آگاهی امنیتی خودت را بسنج.</p>
+</a>
+<a class="card promocard" href="#checklist">
+<div class="ic">✅</div>
+<h3 id="promoClTitle">چک‌لیست امنیتی</h3>
+<p id="promoClDesc">۱۰ قانون طلایی امنیت را مرور و تیک بزن یا چاپ کن.</p>
+</a>
+</div>
+</div></section>
+
+<section><div class="wrap faq">
+<h2 id="h2Faq">سؤالات متداول</h2>
+<div class="card cardlink faqcard" data-d="15" role="button" tabindex="0"><h3>آیا آنتی‌ویروس برای امنیت کافی است؟</h3></div>
+<div class="card cardlink faqcard" data-d="16" role="button" tabindex="0"><h3>هر چند وقت یک‌بار رمز را عوض کنم؟</h3></div>
+<div class="card cardlink faqcard" data-d="17" role="button" tabindex="0"><h3>آیا مک و گوشی آیفون ویروس نمی‌گیرند؟</h3></div>
+<div class="card cardlink faqcard" data-d="18" role="button" tabindex="0"><h3>آیا قفل https یعنی سایت کاملاً امن است؟</h3></div>
+</div></section>
+
+</main>
+
+<section id="detailpage" hidden><div class="wrap">
+<a class="back backlink" href="#home">→ بازگشت به صفحه اصلی</a>
+<div class="dhead">
+<div id="dIcon" class="dicon"></div>
+<div>
+<h2 id="dTitle"></h2>
+<p id="dSub" class="dsub"></p>
+</div>
+</div>
+<div id="dBody" class="dbody"></div>
+</div></section>
+
+<section id="pwpage" hidden><div class="wrap">
+<a class="back backlink" href="#home">→ بازگشت به صفحه اصلی</a>
+<div class="gen">
+<h2 id="h2Gen">ساخت رمز عبور قوی</h2>
+<div class="gbox">
+<label for="gLen"><span id="lenLabelPre">طول رمز:</span> <b id="gLenVal">16</b> <span id="lenLabelPost">کاراکتر</span></label>
+<input id="gLen" type="range" min="8" max="32" value="16">
+<div class="gopts">
+<label><input type="checkbox" id="oUp" checked><span id="optUp">حروف بزرگ</span></label>
+<label><input type="checkbox" id="oLow" checked><span id="optLow">حروف کوچک</span></label>
+<label><input type="checkbox" id="oNum" checked><span id="optNum">اعداد</span></label>
+<label><input type="checkbox" id="oSym" checked><span id="optSym">نمادها</span></label>
+</div>
+<input id="gOut" type="text" readonly aria-label="رمز ساخته‌شده">
+<div class="gacts">
+<button type="button" class="btn btn-b" id="gMake"><span id="btnMakeTxt">ساخت رمز جدید</span></button>
+<button type="button" class="btn btn-b btn-ghost" id="gCopy"><span id="btnCopyTxt">کپی</span></button>
+<button type="button" class="btn btn-b btn-ghost" id="gTry"><span id="btnTryTxt">آزمایش قدرت</span></button>
+</div>
+<p id="gMsg"></p>
+</div></div>
+<h2 id="h2PwTest">رمز عبور شما چقدر قوی است؟</h2>
+<div class="checker">
+<input id="pw" type="text" placeholder="یک رمز نمونه تایپ کنید (آن را وارد نکنید که واقعی است)" autocomplete="off">
+<div class="bar"><i id="fill"></i></div>
+<p id="msg">منتظر ورودی شما…</p>
+<details style="margin-top:12px"><summary><span class="t" style="font-weight:700" id="pwExplainTitle">توضیح کامل درباره قدرت رمز عبور</span><span class="arr"></span></summary><div class="more" id="pwExplainBody"><p>این ابزار طول رمز، ترکیب حروف بزرگ و کوچک، عدد و نماد را می‌سنجد. امتیاز بالا یعنی رمز در برابر حدس زدن و حمله آزمون‌وخطا مقاوم‌تر است، اما نشانه امن بودن مطلق نیست.</p><ul><li>طول بیش از ۱۲ کاراکتر مهم‌ترین عامل است</li><li>رمزهای رایج مثل 123456 یا نام و تاریخ تولد حتی با نماد هم ضعیف‌اند</li><li>رمز واقعی خود را در هیچ سایتی برای آزمایش وارد نکنید؛ یک نمونه مشابه بنویسید</li></ul><p>این ابزار تنها در مرورگر شما اجرا می‌شود و چیزی ارسال یا ذخیره نمی‌کند.</p></div></details>
+</div></div></section>
+
+<section id="quizpage" hidden><div class="wrap">
+<a class="back backlink" href="#home">→ بازگشت به صفحه اصلی</a>
+<h2 id="h2Quiz">خودت را امتحان کن</h2>
+<div id="quizBox"></div>
+<div id="quizResult"></div>
+</div></section>
+
+<section id="checklistpage" hidden><div class="wrap">
+<a class="back backlink" href="#home">→ بازگشت به صفحه اصلی</a>
+<h2 id="h2Checklist">چک‌لیست امنیتی</h2>
+<div id="printArea">
+<ul class="checklist" id="checklistBox"></ul>
+</div>
+<button type="button" class="btn printbtn" id="printBtn"><span id="printBtnTxt">چاپ این چک‌لیست</span></button>
+</div></section>
+
+<footer><span style="opacity:.7;font-size:13px" id="updateDate">آخرین به‌روزرسانی: ۲۸ آبان ۱۴۰۵</span><br><br><span style="opacity:.8" id="footerLabel">طراح و کدنویس :</span><br><span style="font-size:20px;font-weight:900;color:var(--text)" id="footerName">سید آتیلا حسینی</span></footer>
+
+<script>
+const themeBtn=document.getElementById('themeBtn'),mq=window.matchMedia('(prefers-color-scheme: dark)');
+function isDark(){return document.documentElement.dataset.theme==='dark'}
+function paint(){themeBtn.textContent=isDark()?'☀️':'🌙'}
+themeBtn.addEventListener('click',()=>{document.documentElement.dataset.theme=isDark()?'light':'dark';paint()});
+mq.addEventListener('change',()=>{if(!document.documentElement.dataset.theme)paint()});
+paint();
+const claudeFab=document.getElementById('claudeFab');
+
+/* ===== Language toggle ===== */
+let lang='fa';
+const STR={
+ txtEyebrow:{fa:'راهنمای جامع امنیت سایبری',en:'Comprehensive Cybersecurity Guide'},
+ heroTitle:{fa:'امنیت سایبری؛ <span>سپر دیجیتال شما</span>',en:'Cybersecurity: <span>Your Digital Shield</span>'},
+ heroDesc:{fa:'با شناخت تهدیدهای رایج و رعایت چند عادت ساده، حساب‌ها و اطلاعات شخصی‌تان را در برابر هکرها ایمن نگه دارید.',en:'By recognizing common threats and following a few simple habits, keep your accounts and personal information safe from hackers.'},
+ ctaTitle:{fa:'رمز عبور شما چقدر امن است؟',en:'How strong is your password?'},
+ ctaDesc:{fa:'با یک آزمایش سریع، قدرت یک رمز نمونه را بسنجید.',en:'Take a quick test to measure the strength of a sample password.'},
+ ctaBtn:{fa:'تست رمز عبور',en:'Test password'},
+ h2Threats:{fa:'تهدیدهای رایج',en:'Common threats'},
+ h2Hack:{fa:'هکرها چطور به دستگاه‌های ما نفوذ می‌کنند؟',en:'How do hackers get into our devices?'},
+ warnLabel:{fa:'نشانه‌های هشداردهنده:',en:'Warning signs:'},
+ warnDesc:{fa:'تخلیه سریع باتری، داغ شدن یا کند شدن ناگهانی دستگاه، نصب برنامه‌هایی که خودتان نصب نکرده‌اید، افزایش غیرعادی مصرف دیتا، باز شدن خودکار پنجره‌ها یا دوربین/میکروفون، و قطعی یا کندی غیرمعمول Wi-Fi.',en:'Rapid battery drain, sudden overheating or slowdown, apps appearing that you didn\'t install, unusual data usage spikes, windows or the camera/microphone opening on their own, and unusual Wi-Fi drops or slowness.'},
+ h2Tips:{fa:'چند عادت امنیتی ساده',en:'A few simple security habits'},
+ h2Pillars:{fa:'سه ستون امنیت اطلاعات',en:'The three pillars of information security'},
+ h2Chart:{fa:'روند رشد حملات سایبری در جهان',en:'Global growth trend of cyberattacks'},
+ chartLabel:{fa:'روند کلی (تخمینی)',en:'General trend (estimated)'},
+ chartDesc:{fa:'این نمودار برای نمایش روند کلی و صعودی حملات سایبری در جهان از سال ۱۳۹۰ تا امروز ترسیم شده و بر اساس میانگین گزارش‌های سالانه شرکت‌ها و نهادهای امنیتی جهانی است؛ عدد دقیق و رسمی برای مقایسه سال‌به‌سال نیست، بلکه شکل کلی رشد را نشان می‌دهد. طبق این گزارش‌ها، رشد در سال‌های اخیر به‌ویژه با گسترش اینترنت اشیا، کار از راه دور و استفاده از هوش مصنوعی در حملات شتاب گرفته است.',en:'This chart shows the general upward trend of cyberattacks worldwide from 1390 (2011) to today, based on the average of annual reports from global security companies and organizations. It is not an exact, official figure for year-by-year comparison, but shows the overall shape of the growth. According to these reports, growth has accelerated in recent years, especially with the spread of IoT, remote work, and the use of AI in attacks.'},
+ h2Glossary:{fa:'واژه‌نامه',en:'Glossary'},
+ h2IfHacked:{fa:'اگر هک شدید، چه کنید؟',en:'What to do if you\'ve been hacked'},
+ ih1:{fa:'آرام بمانید و فوراً رمز حساب آلوده را از یک دستگاه سالم تغییر دهید.',en:'Stay calm and immediately change the compromised account\'s password from a clean device.'},
+ ih2:{fa:'اگر رمز مشابه جای دیگری استفاده کرده‌اید، آن را هم عوض کنید.',en:'If you\'ve used the same password elsewhere, change that too.'},
+ ih3:{fa:'تأیید هویت دو مرحله‌ای را فعال و نشست‌های فعال (دستگاه‌های وارد شده) را ببندید.',en:'Enable two-factor authentication and sign out of all active sessions (logged-in devices).'},
+ ih4:{fa:'دستگاه را با یک آنتی‌ویروس معتبر اسکن کنید و برنامه‌های ناشناس را حذف کنید.',en:'Scan the device with reputable antivirus software and remove unknown apps.'},
+ ih5:{fa:'اگر اطلاعات بانکی درگیر است، با بانک تماس بگیرید و کارت را مسدود کنید. در صورت لزوم به مراجع رسمی گزارش دهید.',en:'If banking information is involved, contact your bank and freeze the card. Report it to the relevant authorities if necessary.'},
+ h2Faq:{fa:'سؤالات متداول',en:'Frequently asked questions'},
+ h2Gen:{fa:'ساخت رمز عبور قوی',en:'Generate a strong password'},
+ lenLabelPre:{fa:'طول رمز:',en:'Password length:'},
+ lenLabelPost:{fa:'کاراکتر',en:'characters'},
+ optUp:{fa:'حروف بزرگ',en:'Uppercase letters'},
+ optLow:{fa:'حروف کوچک',en:'Lowercase letters'},
+ optNum:{fa:'اعداد',en:'Numbers'},
+ optSym:{fa:'نمادها',en:'Symbols'},
+ btnMakeTxt:{fa:'ساخت رمز جدید',en:'Generate new password'},
+ btnCopyTxt:{fa:'کپی',en:'Copy'},
+ btnTryTxt:{fa:'آزمایش قدرت',en:'Test strength'},
+ h2PwTest:{fa:'رمز عبور شما چقدر قوی است؟',en:'How strong is your password?'},
+ pwExplainTitle:{fa:'توضیح کامل درباره قدرت رمز عبور',en:'Full explanation of password strength'},
+ pwExplainBody:{fa:'',en:'<p>This tool measures password length and the mix of uppercase, lowercase, numbers, and symbols. A high score means the password is more resistant to guessing and brute-force attacks, but it is not a sign of absolute safety.</p><ul><li>Length over 12 characters is the most important factor</li><li>Common passwords like 123456 or names and birthdates are weak even with symbols added</li><li>Never enter your real password anywhere to test it — type a similar sample instead</li></ul><p>This tool runs only in your browser and doesn\'t send or store anything.</p>'},
+ footerLabel:{fa:'طراح و کدنویس :',en:'Design & Code:'},
+ footerName:{fa:'سید آتیلا حسینی',en:'Seyed Atila Hosseini'},
+ h2Quiz:{fa:'خودت را امتحان کن',en:'Test yourself'},
+ h2Checklist:{fa:'چک‌لیست امنیتی',en:'Security checklist'},
+ printBtnTxt:{fa:'چاپ این چک‌لیست',en:'Print this checklist'},
+ navHomeTxt:{fa:'خانه',en:'Home'},
+ navQuizTxt:{fa:'آزمون',en:'Quiz'},
+ navPwTxt:{fa:'رمز عبور',en:'Password'},
+ navClTxt:{fa:'چک\u200cلیست',en:'Checklist'},
+ navFaqTxt:{fa:'سؤالات',en:'FAQ'},
+ updateDate:{fa:'آخرین به\u200cروزرسانی: ۲۸ آبان ۱۴۰۵',en:'Last updated: November 19, 2026'},
+ promoQuizTitle:{fa:'خودت را امتحان کن',en:'Test yourself'},
+ promoQuizDesc:{fa:'با یک آزمون کوتاه ۶ سؤالی، آگاهی امنیتی خودت را بسنج.',en:'Take a short 6-question quiz to test your security awareness.'},
+ promoClTitle:{fa:'چک\u200cلیست امنیتی',en:'Security checklist'},
+ promoClDesc:{fa:'۱۰ قانون طلایی امنیت را مرور و تیک بزن یا چاپ کن.',en:'Review the 10 golden security rules, check them off, or print them.'},
+ yr0:{fa:'۱۳۹۰',en:'1390'},yr1:{fa:'۱۳۹۲',en:'1392'},yr2:{fa:'۱۳۹۴',en:'1394'},yr3:{fa:'۱۳۹۶',en:'1396'},
+ yr4:{fa:'۱۳۹۸',en:'1398'},yr5:{fa:'۱۴۰۰',en:'1400'},yr6:{fa:'۱۴۰۲',en:'1402'},yr7:{fa:'۱۴۰۴',en:'1404'}
+};
+const PW_EXPLAIN_FA=document.getElementById('pwExplainBody').innerHTML;
+const MSG={
+ waiting:{fa:'منتظر ورودی شما…',en:'Waiting for your input…'},
+ pickChar:{fa:'حداقل یک نوع کاراکتر را انتخاب کنید.',en:'Select at least one character type.'},
+ genNote:{fa:'این رمز فقط در مرورگر شما ساخته می‌شود و جایی ذخیره یا ارسال نمی‌شود.',en:'This password is generated only in your browser and isn\'t stored or sent anywhere.'},
+ copied:{fa:'کپی شد ✓',en:'Copied ✓'},
+ copyFail:{fa:'رمز را انتخاب و دستی کپی کنید.',en:'Select the password and copy it manually.'},
+ strengthPrefix:{fa:'قدرت رمز: ',en:'Password strength: '},
+ placeholder:{fa:'یک رمز نمونه تایپ کنید (آن را وارد نکنید که واقعی است)',en:'Type a sample password (don\'t use your real one)'},
+ levels:{fa:['خیلی ضعیف','ضعیف','متوسط','خوب','قوی','عالی'],en:['Very weak','Weak','Fair','Good','Strong','Excellent']},
+ themeAria:{fa:'تغییر پوسته',en:'Toggle theme'},
+ aiAria:{fa:'هوش مصنوعی',en:'AI Assistant'},
+ backTxt:{fa:'→ بازگشت به صفحه اصلی',en:'→ Back to home'},
+ docTitle:{fa:'امنیت سایبری | سپر دیجیتال شما',en:'Cybersecurity | Your Digital Shield'},
+ langAriaToEn:{fa:'ترجمه به انگلیسی',en:'ترجمه به انگلیسی'},
+ langAriaToFa:{fa:'بازگشت به فارسی',en:'Switch back to Persian'}
+};
+function applyLang(){
+ const L=lang;
+ for(const id in STR){const el=document.getElementById(id);if(!el)continue;const v=STR[id][L];if(id==='heroTitle'||id==='pwExplainBody'){el.innerHTML=(id==='pwExplainBody'?(L==='fa'?PW_EXPLAIN_FA:STR.pwExplainBody.en):v);}else{el.textContent=v;}}
+ document.querySelectorAll('.backlink').forEach(el=>el.textContent=MSG.backTxt[L]);
+ document.title=MSG.docTitle[L];
+ themeBtn.setAttribute('aria-label',MSG.themeAria[L]);
+ claudeFab.setAttribute('aria-label',MSG.aiAria[L]);
+ langBtn.setAttribute('aria-label',L==='fa'?MSG.langAriaToEn.fa:MSG.langAriaToFa.en);
+ document.getElementById('pw').setAttribute('placeholder',MSG.placeholder[L]);
+ document.querySelectorAll('.cardlink').forEach(el=>{
+   const idx=+el.dataset.d,d=DETAILS[idx];if(!d)return;
+   const h3=el.querySelector('h3'),p=el.querySelector('p'),t=el.querySelector('span.t');
+   if(h3)h3.textContent=L==='fa'?d.title:d.titleEn;
+   if(p)p.textContent=L==='fa'?d.sub:d.subEn;
+   if(t)t.textContent=L==='fa'?d.title:d.titleEn;
+ });
+ if(!pwpage.hidden){
+   msg.textContent = pw.value ? msg.textContent : MSG.waiting[L];
+ } else if(!detailpage.hidden){
+   /* re-render open detail page in new language */
+   const dm=/^d(\d+)$/.exec(location.hash.slice(1));
+   if(dm)showDetail(+dm[1]);
+ }
+ document.documentElement.lang=L;
+}
+const langBtn=document.getElementById('langBtn');
+langBtn.addEventListener('click',()=>{lang=lang==='fa'?'en':'fa';applyLang();renderQuiz();renderChecklist();});
+
+/* ===== Quiz ===== */
+const QUIZ_DATA=[
+ {q:'کدام یک از این‌ها نشانه یک پیام فیشینگ است؟',qEn:'Which of these is a sign of a phishing message?',
+  opts:['آدرس دقیقاً مطابق سایت اصلی است','درخواست فوری برای وارد کردن رمز','از طرف مخاطب ذخیره‌شده شماست','هیچ لینکی ندارد'],
+  optsEn:['The address exactly matches the real site','An urgent request to enter your password','It\'s from a contact saved on your phone','It has no link at all'],
+  correct:1},
+ {q:'بهترین روش برای محافظت از رمزهای عبور چیست؟',qEn:'What\'s the best way to protect your passwords?',
+  opts:['استفاده از یک رمز قوی برای همه حساب‌ها','رمز متفاوت برای هر حساب به‌همراه مدیر رمز عبور','نوشتن رمزها روی کاغذ کنار کامپیوتر','رمز را هر هفته عوض کردن'],
+  optsEn:['Use one strong password for every account','A different password for each account, with a password manager','Write passwords on paper next to the computer','Change your password every week'],
+  correct:1},
+ {q:'در شبکه وای‌فای عمومی بهتر است از چه کاری پرهیز کنید؟',qEn:'On public Wi-Fi, what should you avoid doing?',
+  opts:['خواندن اخبار','تماشای ویدیو','انجام تراکنش بانکی بدون VPN','جست‌وجوی گوگل'],
+  optsEn:['Reading the news','Watching a video','Doing online banking without a VPN','Searching Google'],
+  correct:2},
+ {q:'باج‌افزار دقیقاً چه کاری انجام می‌دهد؟',qEn:'What exactly does ransomware do?',
+  opts:['فایل‌ها را برای همیشه پاک می‌کند','فایل‌ها را رمزگذاری و قفل می‌کند و برای باز کردنشان پول می‌خواهد','فقط تبلیغات مزاحم نشان می‌دهد','سرعت اینترنت را کم می‌کند'],
+  optsEn:['It permanently deletes your files','It encrypts and locks files, then demands money to unlock them','It just shows annoying ads','It slows down your internet'],
+  correct:1},
+ {q:'مزیت اصلی تأیید هویت دو مرحله‌ای چیست؟',qEn:'What\'s the main benefit of two-factor authentication?',
+  opts:['دیگر نیازی به رمز عبور نیست','حتی اگر رمز لو برود، ورود بدون عامل دوم سخت می‌شود','رمز را خودکار قوی‌تر می‌کند','سرعت ورود به حساب را بیشتر می‌کند'],
+  optsEn:['You no longer need a password at all','Even if your password leaks, logging in without the second factor is much harder','It automatically makes your password stronger','It makes logging in faster'],
+  correct:1},
+ {q:'قفل https کنار آدرس سایت دقیقاً چه چیزی را تضمین می‌کند؟',qEn:'What does the https lock next to a site\'s address actually guarantee?',
+  opts:['سایت کاملاً امن و قابل‌اعتماد است','فقط اینکه ارتباط شما با سایت رمزگذاری شده است','سایت هیچ تبلیغی ندارد','سایت رایگان است'],
+  optsEn:['The site is completely safe and trustworthy','Only that your connection to the site is encrypted','The site has no ads','The site is free to use'],
+  correct:1}
+];
+const quizBox=document.getElementById('quizBox'),quizResult=document.getElementById('quizResult');
+let quizAnswered=new Array(QUIZ_DATA.length).fill(null);
+function renderQuiz(){
+ const L=lang;
+ quizBox.innerHTML='';
+ QUIZ_DATA.forEach((item,qi)=>{
+   const div=document.createElement('div');div.className='quiz-q';
+   const p=document.createElement('p');p.className='qtext';p.textContent=(qi+1)+'. '+(L==='fa'?item.q:item.qEn);div.appendChild(p);
+   const opts=L==='fa'?item.opts:item.optsEn;
+   opts.forEach((optText,oi)=>{
+     const label=document.createElement('label');label.className='quiz-opt';
+     const input=document.createElement('input');input.type='radio';input.name='q'+qi;input.value=oi;
+     if(quizAnswered[qi]===oi)input.checked=true;
+     input.addEventListener('change',()=>{quizAnswered[qi]=oi;markAnswer(qi);});
+     const span=document.createElement('span');span.textContent=optText;
+     label.appendChild(input);label.appendChild(span);div.appendChild(label);
+     if(quizAnswered[qi]!==null)markOption(label,oi,qi);
+   });
+   quizBox.appendChild(div);
+ });
+ updateQuizResult();
+}
+function markOption(label,oi,qi){
+ const correct=QUIZ_DATA[qi].correct;
+ label.classList.remove('correct','wrong');
+ if(oi===correct)label.classList.add('correct');
+ else if(oi===quizAnswered[qi])label.classList.add('wrong');
+}
+function markAnswer(qi){
+ const qDiv=quizBox.children[qi];
+ qDiv.querySelectorAll('.quiz-opt').forEach((label,oi)=>markOption(label,oi,qi));
+ updateQuizResult();
+}
+function updateQuizResult(){
+ const answeredCount=quizAnswered.filter(v=>v!==null).length;
+ if(answeredCount<QUIZ_DATA.length){quizResult.style.display='none';return}
+ const score=quizAnswered.reduce((s,v,i)=>s+(v===QUIZ_DATA[i].correct?1:0),0);
+ const total=QUIZ_DATA.length;
+ let msgFa,msgEn;
+ if(score>=total-1){msgFa='عالی! نتیجه: '+score+' از '+total+' — آگاهی امنیتی خوبی داری.';msgEn='Great! Score: '+score+'/'+total+' — you have solid security awareness.';}
+ else if(score>=total/2){msgFa='خوب بود! نتیجه: '+score+' از '+total+' — جای بهبود هست.';msgEn='Good! Score: '+score+'/'+total+' — there\'s room to improve.';}
+ else{msgFa='نتیجه: '+score+' از '+total+' — پیشنهاد می‌شود بخش‌های بالا را دوباره مرور کنی.';msgEn='Score: '+score+'/'+total+' — consider reviewing the sections above again.';}
+ quizResult.textContent=lang==='fa'?msgFa:msgEn;
+ quizResult.style.display='block';
+}
+
+/* ===== Checklist ===== */
+const CHECKLIST_DATA=[
+ {fa:'برای هر حساب یک رمز عبور طولانی و یکتا بساز',en:'Use a long, unique password for every account'},
+ {fa:'از یک مدیر رمز عبور استفاده کن',en:'Use a password manager'},
+ {fa:'تأیید هویت دو مرحله‌ای را روی حساب‌های مهم فعال کن',en:'Enable two-factor authentication on important accounts'},
+ {fa:'قبل از کلیک روی هر لینک، آدرس آن را با دقت بررسی کن',en:'Before clicking any link, carefully check its address'},
+ {fa:'سیستم‌عامل و برنامه‌ها را همیشه به‌روز نگه دار',en:'Always keep your OS and apps updated'},
+ {fa:'از یک آنتی‌ویروس معتبر استفاده کن',en:'Use reputable antivirus software'},
+ {fa:'در وای‌فای عمومی کارهای حساس مثل بانکداری انجام نده',en:'Avoid sensitive tasks like banking on public Wi-Fi'},
+ {fa:'به‌طور منظم از فایل‌های مهم نسخه پشتیبان تهیه کن',en:'Regularly back up your important files'},
+ {fa:'فقط از فروشگاه‌های رسمی برنامه نصب کن',en:'Only install apps from official stores'},
+ {fa:'رمز یا کد تأیید خود را هرگز به کسی ندهید',en:'Never share your password or verification code with anyone'}
+];
+const checklistBox=document.getElementById('checklistBox');
+function renderChecklist(){
+ const L=lang;
+ const prevChecked=[...checklistBox.querySelectorAll('input[type=checkbox]')].map(i=>i.checked);
+ checklistBox.innerHTML='';
+ CHECKLIST_DATA.forEach((item,i)=>{
+   const li=document.createElement('li');
+   const cb=document.createElement('input');cb.type='checkbox';cb.id='cl'+i;
+   if(prevChecked[i])cb.checked=true;
+   if(prevChecked[i])li.classList.add('checked');
+   cb.addEventListener('change',()=>{li.classList.toggle('checked',cb.checked)});
+   const label=document.createElement('label');label.setAttribute('for','cl'+i);label.style.cursor='pointer';label.textContent=(L==='fa'?item.fa:item.en);
+   li.appendChild(cb);li.appendChild(label);
+   checklistBox.appendChild(li);
+ });
+}
+document.getElementById('printBtn').addEventListener('click',()=>window.print());
+renderQuiz();
+renderChecklist();
+window.addEventListener('scroll',()=>{claudeFab.classList.toggle('show',window.scrollY>300)},{passive:true});
+const SETS={oUp:'ABCDEFGHJKLMNPQRSTUVWXYZ',oLow:'abcdefghijkmnopqrstuvwxyz',oNum:'23456789',oSym:'!@#$%^&*()-_=+?'};
+const gLen=document.getElementById('gLen'),gLenVal=document.getElementById('gLenVal'),gOut=document.getElementById('gOut'),gMsg=document.getElementById('gMsg');
+function rnd(n){const m=Math.floor(4294967296/n)*n,a=new Uint32Array(1);do{crypto.getRandomValues(a)}while(a[0]>=m);return a[0]%n}
+function makePw(){
+gLenVal.textContent=gLen.value;
+const act=Object.keys(SETS).filter(k=>document.getElementById(k).checked);
+const L=(typeof lang!=='undefined')?lang:'fa';
+if(!act.length){gOut.value='';gMsg.textContent=MSG.pickChar[L];return}
+const all=act.map(k=>SETS[k]).join(''),c=act.map(k=>SETS[k][rnd(SETS[k].length)]);
+while(c.length<+gLen.value)c.push(all[rnd(all.length)]);
+for(let i=c.length-1;i>0;i--){const j=rnd(i+1);[c[i],c[j]]=[c[j],c[i]]}
+gOut.value=c.join('');
+gMsg.textContent=MSG.genNote[L];
+}
+document.getElementById('gMake').addEventListener('click',makePw);
+gLen.addEventListener('input',makePw);
+Object.keys(SETS).forEach(k=>document.getElementById(k).addEventListener('change',makePw));
+document.getElementById('gCopy').addEventListener('click',async()=>{
+if(!gOut.value)return;
+const L=(typeof lang!=='undefined')?lang:'fa';
+try{await navigator.clipboard.writeText(gOut.value);gMsg.textContent=MSG.copied[L]}
+catch(e){gOut.select();try{document.execCommand('copy');gMsg.textContent=MSG.copied[L]}catch(_){gMsg.textContent=MSG.copyFail[L]}}
+});
+document.getElementById('gTry').addEventListener('click',()=>{
+if(!gOut.value)return;
+const t=document.getElementById('pw');t.value=gOut.value;t.dispatchEvent(new Event('input'));t.scrollIntoView({behavior:'smooth',block:'center'});
+});
+makePw();
+const revealEls=document.querySelectorAll('section, header.hero');
+revealEls.forEach(el=>el.classList.add('reveal'));
+const io=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+revealEls.forEach(el=>io.observe(el));
+const DETAILS=[{"icon": "🎣", "title": "فیشینگ", "sub": "پیام یا ایمیل جعلی که شما را به وارد کردن رمز یا اطلاعات بانکی در سایت تقلبی ترغیب می‌کند.", "body": "<p><b>فیشینگ چیست؟</b> در این روش مهاجم خود را به‌جای یک نهاد معتبر (بانک، فروشگاه آنلاین، شرکت ارتباطی یا حتی همکار شما) جا می‌زند و با ایجاد حس فوریت، مثلاً «حساب شما مسدود می‌شود»، شما را وادار می‌کند روی لینک بزنید و اطلاعات واردکنید.</p><p><b>انواع آن:</b></p><ul><li>ایمیل فیشینگ: پیام‌های انبوه با لینک جعلی</li><li>اسمیشینگ: همان کار از طریق پیامک</li><li>ویشینگ: تماس تلفنی جعلی</li><li>اسپیر فیشینگ: حمله هدفمند به یک فرد خاص با اطلاعات واقعی او</li></ul><p><b>نشانه‌ها:</b> غلط‌های نگارشی، آدرس سایت مشکوک (مثلاً یک حرف متفاوت)، درخواست رمز یا کد تأیید، و فشار برای اقدام سریع.</p><p><b>چطور محافظت کنیم؟</b> روی لینک پیام‌های مشکوک کلیک نکنید، آدرس سایت را خودتان در مرورگر تایپ کنید، کد یک‌بارمصرف را هرگز به کسی ندهید و در صورت شک، مستقیم با خود سازمان تماس بگیرید.</p>", "titleEn": "Phishing", "subEn": "A fake message or email trying to trick you into entering your password or bank details on a fraudulent site.", "bodyEn": "<p><b>What is phishing?</b> The attacker pretends to be a trusted entity (a bank, online store, service provider, or even a colleague) and creates a sense of urgency — like “your account will be suspended” — to make you click a link and enter your information.</p><p><b>Common types:</b></p><ul><li>Email phishing: mass messages with fake links</li><li>Smishing: the same trick via text message</li><li>Vishing: fraudulent phone calls</li><li>Spear phishing: a targeted attack on a specific person using real details about them</li></ul><p><b>Warning signs:</b> spelling mistakes, a suspicious site address (e.g. one letter off), requests for your password or verification code, and pressure to act quickly.</p><p><b>How to protect yourself:</b> don't click links in suspicious messages, type the site address yourself into your browser, never share one-time codes with anyone, and if in doubt, contact the organization directly.</p>"}, {"icon": "🦠", "title": "بدافزار", "sub": "نرم‌افزارهای مخرب مانند ویروس و جاسوس‌افزار که پنهانی روی دستگاه نصب می‌شوند.", "body": "<p><b>بدافزار چیست؟</b> هر برنامه‌ای که برای آسیب زدن، جاسوسی یا کنترل دستگاه شما ساخته شده است.</p><p><b>انواع رایج:</b></p><ul><li>ویروس و کرم: خود را تکثیر می‌کنند و به فایل‌ها یا شبکه گسترش می‌یابند</li><li>تروجان: در ظاهر برنامه مفید است ولی در پنهان مخرب است</li><li>جاسوس‌افزار و کی‌لاگر: رمزها و فعالیت شما را ثبت می‌کنند</li><li>تبلیغ‌افزار: تبلیغات مزاحم نشان می‌دهد و رفتار دستگاه را کند می‌کند</li></ul><p><b>راه‌های ورود:</b> نرم‌افزارهای کرک‌شده، پیوست ایمیل، برنامه‌های خارج از فروشگاه رسمی و افزونه‌های ناشناس.</p><p><b>پیشگیری:</b> فقط از منابع رسمی نصب کنید، آنتی‌ویروس معتبر داشته باشید، سیستم را به‌روز نگه دارید و به مجوزهایی که برنامه‌ها می‌خواهند دقت کنید.</p>", "titleEn": "Malware", "subEn": "Malicious software like viruses and spyware that get installed on your device without you knowing.", "bodyEn": "<p><b>What is malware?</b> Any program built to damage, spy on, or take control of your device.</p><p><b>Common types:</b></p><ul><li>Viruses & worms: replicate themselves and spread to files or networks</li><li>Trojans: look useful but are malicious underneath</li><li>Spyware & keyloggers: record your passwords and activity</li><li>Adware: shows intrusive ads and slows your device down</li></ul><p><b>How it gets in:</b> cracked software, email attachments, apps from outside official stores, and unknown browser extensions.</p><p><b>Prevention:</b> only install from official sources, use reputable antivirus software, keep your system updated, and pay attention to the permissions apps request.</p>"}, {"icon": "🔒", "title": "باج‌افزار", "sub": "فایل‌های شما را رمزگذاری می‌کند و برای بازگرداندن آن‌ها پول طلب می‌کند.", "body": "<p><b>باج‌افزار چیست؟</b> نوعی بدافزار که فایل‌های شما را رمزگذاری و قفل می‌کند و برای باز کردن آن‌ها از شما پول (معمولاً ارز دیجیتال) می‌خواهد.</p><p><b>چرا خطرناک است؟</b> حتی با پرداخت باج هم تضمینی برای بازگشت فایل‌ها نیست، و پرداخت، مهاجم را به ادامه کار تشویق می‌کند. برخی گروه‌ها علاوه بر قفل کردن، اطلاعات را هم می‌دزدند و تهدید به انتشار می‌کنند.</p><p><b>اگر آلوده شدید:</b></p><ul><li>فوراً دستگاه را از اینترنت و شبکه جدا کنید</li><li>باج پرداخت نکنید</li><li>از متخصص امنیت یا مراجع مربوط کمک بگیرید</li><li>سیستم را پاک‌سازی و از نسخه پشتیبان بازیابی کنید</li></ul><p><b>بهترین دفاع:</b> نسخه پشتیبان منظم و جداگانه (آفلاین یا ابری) از فایل‌های مهم، به‌روزرسانی سیستم و پرهیز از باز کردن پیوست‌های مشکوک.</p>", "titleEn": "Ransomware", "subEn": "Encrypts your files and demands payment to give them back.", "bodyEn": "<p><b>What is ransomware?</b> Malware that encrypts and locks your files, then demands money (usually cryptocurrency) to unlock them.</p><p><b>Why is it dangerous?</b> Even paying is no guarantee of getting your files back, and it encourages the attacker to continue. Some groups also steal your data and threaten to leak it.</p><p><b>If you're infected:</b></p><ul><li>Immediately disconnect the device from the internet and network</li><li>Don't pay the ransom</li><li>Get help from a security professional or the relevant authorities</li><li>Clean the system and restore from backup</li></ul><p><b>Best defense:</b> regular, separate backups (offline or cloud) of important files, keeping your system updated, and avoiding suspicious attachments.</p>"}, {"icon": "📶", "title": "وای‌فای عمومی", "sub": "شبکه‌های باز و ناامن می‌توانند ترافیک شما را در معرض شنود قرار دهند.", "body": "<p><b>خطر چیست؟</b> در شبکه‌های عمومی (کافه، فرودگاه، هتل) هر کسی می‌تواند وصل شود. مهاجم ممکن است ترافیک را شنود کند یا یک وای‌فای جعلی با نام مشابه بسازد تا کاربران به آن وصل شوند.</p><p><b>حمله‌های رایج:</b> شنود بین کاربر و شبکه (مرد میانی)، شبکه جعلی (Evil Twin) و دزدیدن نشست ورود به حساب‌ها.</p><p><b>توصیه‌ها:</b></p><ul><li>در شبکه عمومی کارهای حساس مانند بانکداری انجام ندهید</li><li>فقط به سایت‌هایی که آدرسشان با https شروع می‌شود وارد شوید</li><li>نام دقیق شبکه را از کارکنان محل بپرسید</li><li>در صورت نیاز از یک VPN معتبر استفاده کنید</li><li>اتصال خودکار به شبکه‌های باز را خاموش کنید</li></ul><p>اینترنت گوشی (هات‌اسپات شخصی) معمولاً گزینه امن‌تری است.</p>", "titleEn": "Public Wi-Fi", "subEn": "Open, unsecured networks can expose your traffic to eavesdropping.", "bodyEn": "<p><b>What's the risk?</b> On public networks (cafés, airports, hotels), anyone can connect. An attacker may intercept traffic or set up a fake network with a similar name to lure users onto it.</p><p><b>Common attacks:</b> man-in-the-middle eavesdropping, fake networks (Evil Twin), and session hijacking.</p><p><b>Recommendations:</b></p><ul><li>Don't do sensitive tasks like banking on public networks</li><li>Only enter sites whose address starts with https</li><li>Ask staff for the network's exact name</li><li>Use a trustworthy VPN if needed</li><li>Turn off automatic connection to open networks</li></ul><p>Your phone's hotspot is usually a safer option.</p>"}, {"icon": "📱", "title": "گوشی همراه", "sub": "گوشی‌های اندروید و آیفون هم از حملات در امان نیستند.", "body": "<p>رایج‌ترین راه نفوذ به گوشی، نصب یک برنامه آلوده است که خود را شبیه یک برنامه معمولی جا می‌زند (مثلاً یک چراغ قوه یا اپلیکیشن خارج از فروشگاه‌های رسمی). پس از نصب، می‌تواند به پیامک، تماس، عکس‌ها یا مکان دسترسی پیدا کند و آن‌ها را برای فرد مهاجم بفرستد.</p><p>راه دیگر، لینک‌های فیشینگ در پیامک یا شبکه‌های اجتماعی و شارژرها یا کابل‌های عمومی آلوده (مانند ایستگاه‌های شارژ فرودگاه) است که می‌توانند بدون اطلاع شما داده‌ها را استخراج کنند.</p><p><b>راه‌های محافظت:</b> فقط از فروشگاه‌های رسمی (Google Play، App Store) نصب کنید، مجوزهای هر برنامه را بررسی کنید، سیستم‌عامل را به‌روز نگه دارید و از شارژرهای عمومی ناشناس پرهیز کنید.</p>", "titleEn": "Mobile phones", "subEn": "Both Android and iPhone devices are vulnerable to attacks.", "bodyEn": "<p>The most common way in is installing an infected app disguised as something ordinary (like a flashlight app, or one from outside official stores). Once installed, it can access your texts, calls, photos, or location and send them to the attacker.</p><p>Another route is phishing links sent via text or social media, and infected public chargers or cables (like airport charging stations), which can quietly extract data without your knowledge.</p><p><b>How to protect yourself:</b> only install from official stores (Google Play, App Store), check each app's permissions, keep your OS updated, and avoid unknown public chargers.</p>"}, {"icon": "📡", "title": "شبکه Wi-Fi", "sub": "رمز ضعیف یا تنظیمات قدیمی روتر راه ورود باز می‌کند.", "body": "<p>اگر رمز وای‌فای ضعیف یا همان رمز کارخانه باشد، حدس زدن آن آسان است. همچنین، روترهایی که به‌روزرسانی نشده‌اند ممکن است حفره‌های امنیتی شناخته‌شده‌ای داشته باشند که راه نفوذ به شبکه را باز می‌کند.</p><p>مهاجمی که وارد شبکه خانگی شود می‌تواند ترافیک بین دستگاه‌ها را ببیند، دستگاه‌های دیگر متصل (مانند دوربین یا پرینتر هوشمند) را هدف بگیرد یا پهنای باند شما را بدزدد.</p><p><b>چطور امن‌تر شویم؟</b> رمز پیش‌فرض روتر را عوض کنید، فریمور را به‌روز نگه دارید، شبکه مهمان جدا بسازید و دسترسی مدیریتی از راه دور را غیرفعال کنید.</p>", "titleEn": "Wi-Fi network", "subEn": "A weak password or outdated router settings leave the door open.", "bodyEn": "<p>If your Wi-Fi password is weak or still the factory default, it's easy to guess. Routers that haven't been updated may also have known security holes that open a path into the network.</p><p>An attacker who gets onto your home network can see traffic between devices, target other connected gadgets (like a smart camera or printer), or steal your bandwidth.</p><p><b>How to be safer:</b> change the router's default password, keep its firmware updated, set up a separate guest network, and disable remote admin access.</p>"}, {"icon": "💻", "title": "لپ‌تاپ و کامپیوتر", "sub": "نرم‌افزار یا به‌روزرسانی نشده رایج‌ترین راه نفوذ هستند.", "body": "<p>باز کردن ضمیمه‌های آلوده، نصب نرم‌افزار از منابع غیررسمی و استفاده از نرم‌افزار قدیمی از راه‌های اصلی نفوذ هستند. دسترسی فیزیکی به دستگاه (مثلاً از طریق فلش USB ناشناس) هم می‌تواند خطرناک باشد.</p><p>مرورگرها و افزونه‌های آن نیز هدف رایجی هستند؛ یک افزونه مخرب می‌تواند رمزها و فعالیت آنلاین شما را ثبت کند. حملات مبتنی بر مرورگر (مثل دانلود خودکار) گاهی حتی بدون کلیک کاربر رخ می‌دهند.</p><p><b>توصیه:</b> آنتی‌ویروس فعال نگه دارید، فقط افزونه‌های معتبر نصب کنید، رمزگذاری دیسک (BitLocker/FileVault) را فعال کنید و قفل صفحه با رمز قوی داشته باشید.</p>", "titleEn": "Laptops & computers", "subEn": "Outdated software is the most common way in.", "bodyEn": "<p>Opening infected attachments, installing software from unofficial sources, and using outdated software are the main entry points. Physical access to the device (e.g. via an unknown USB drive) can also be dangerous.</p><p>Browsers and their extensions are another common target; a malicious extension can log your passwords and online activity. Browser-based attacks (like drive-by downloads) sometimes happen without the user clicking anything at all.</p><p><b>Recommendation:</b> keep antivirus active, only install trusted extensions, enable disk encryption (BitLocker/FileVault), and use a strong lock-screen password.</p>"}, {"icon": "🧦", "title": "IoT و دستگاه‌های هوشمند", "sub": "دوربین‌ها، دوربین‌های امنیتی و سایر وسایل متصل هم هدف هستند.", "body": "<p>بسیاری از این دستگاه‌ها با رمز کارخانه عرضه می‌شوند و کمتر به‌روز می‌شوند، همین آن‌ها را به هدف راحتی برای نفوذ به کل شبکه خانگی تبدیل می‌کند.</p><p>چون معمولاً رابط کاربری ساده‌ای دارند، کاربران کمتر متوجه نفوذ می‌شوند؛ یک دوربین یا باند هوشمند هک‌شده می‌تواند هم جاسوسی کند و هم به‌عنوان نقطه ورود به سایر دستگاه‌های شبکه استفاده شود.</p><p><b>چطور ایمن‌ترشان کنیم؟</b> رمز پیش‌فرض را حتماً عوض کنید، فریمور را به‌روز نگه دارید، آن‌ها را در یک شبکه جدا از کامپیوترهای اصلی قرار دهید و دسترسی اینترنتی غیرضروری را ببندید.</p>", "titleEn": "IoT & smart devices", "subEn": "Cameras, security cameras, and other connected devices are targets too.", "bodyEn": "<p>Many of these devices ship with a factory password and get updated less often, making them an easy target for breaking into the whole home network.</p><p>Because they usually have a simple interface, users often don't notice a breach; a hacked camera or smart speaker can both spy on you and serve as an entry point into the rest of the network's devices.</p><p><b>How to make them safer:</b> always change the default password, keep firmware updated, put them on a network separate from your main computers, and block unnecessary internet access.</p>"}, {"icon": "🤐", "title": "محرمانگی", "sub": "فقط افراد مجاز باید به اطلاعات دسترسی داشته باشند.", "body": "<p>محرمانگی یعنی اطلاعات حساس مثل رمزها، پیام‌ها و مدارک هویتی در دست افراد غیرمجاز نیفتد. رمزگذاری، رمز عبور قوی و تأیید هویت دو مرحله‌ای از ابزارهای اصلی آن هستند.</p><p>سطح‌بندی دسترسی هم مهم است: نه هر کارمندی به همه داده‌ها نیاز دارد، و اصل «حداقل دسترسی لازم» از نشت تصادفی یا عمدی جلوگیری می‌کند.</p><p><b>نمونه نقض:</b> لو رفتن فهرست مشتریان یک فروشگاه در اثر نفوذ.</p>", "titleEn": "Confidentiality", "subEn": "Only authorized people should have access to information.", "bodyEn": "<p>Confidentiality means sensitive information like passwords, messages, and ID documents don't fall into unauthorized hands. Encryption, strong passwords, and two-factor authentication are its main tools.</p><p>Access levels matter too: not every employee needs access to all data, and the principle of \"least privilege\" prevents accidental or deliberate leaks.</p><p><b>Example breach:</b> a store's customer list leaking due to a breach.</p>"}, {"icon": "✅", "title": "یکپارچگی", "sub": "اطلاعات نباید بدون اجازه تغییر کند یا خراب شود.", "body": "<p>یکپارچگی یعنی داده‌ها درست، کامل و دست‌نخورده بمانند. اگر مهاجم عددی را در یک حساب بانکی یا فایلی را در سیستم تغییر دهد، یکپارچگی نقض شده است.</p><p>این موضوع برای فایل‌های دانلودی هم صدق می‌کند؛ بررسی هش (checksum) فایل تضمین می‌کند همان چیزی که سازنده منتشر کرده را دریافت کرده‌اید، نه نسخه‌ای دستکاری‌شده.</p><p><b>ابزارها:</b> امضای دیجیتال، بررسی مجموع کنترلی (هش) فایل‌ها، کنترل سطح دسترسی و ثبت رویدادها.</p>", "titleEn": "Integrity", "subEn": "Information must not be changed or corrupted without authorization.", "bodyEn": "<p>Integrity means data stays correct, complete, and untouched. If an attacker changes a number in a bank account or a file on a system, integrity has been violated.</p><p>This applies to downloaded files too; checking a file's checksum (hash) confirms you received exactly what the publisher released, not a tampered version.</p><p><b>Tools:</b> digital signatures, file checksums (hashes), access control, and event logging.</p>"}, {"icon": "⚡", "title": "دسترس‌پذیری", "sub": "اطلاعات و سرویس‌ها باید هر وقت لازم است در دسترس باشند.", "body": "<p>دسترس‌پذیری یعنی سیستم‌ها و داده‌ها هنگام نیاز کار کنند. حملات ممانعت از سرویس (DDoS)، باج‌افزار و خرابی سخت‌افزار این ستون را هدف می‌گیرند.</p><p>برای کسب‌وکارها، حتی چند دقیقه از کار افتادن یک سرویس می‌تواند خسارت مالی و اعتباری جدی ایجاد کند؛ به همین دلیل سازمان‌ها روی «زمان بازیابی» و «زمان تداوم کسب‌وکار» سرمایه‌گذاری می‌کنند.</p><p><b>ابزارها:</b> نسخه پشتیبان، سرورهای یدکی، به‌روزرسانی منظم و برنامه واکنش به حادثه.</p>", "titleEn": "Availability", "subEn": "Information and services must be available whenever needed.", "bodyEn": "<p>Availability means systems and data work when needed. Denial-of-service (DDoS) attacks, ransomware, and hardware failure all target this pillar.</p><p>For businesses, even a few minutes of downtime can cause serious financial and reputational damage, which is why organizations invest in \"recovery time\" and \"business continuity\" planning.</p><p><b>Tools:</b> backups, redundant servers, regular updates, and an incident response plan.</p>"}, {"icon": "🕶️", "title": "VPN", "sub": "شبکه خصوصی مجازی که ارتباط شما را رمزگذاری می‌کند.", "body": "<p>VPN ترافیک اینترنت شما را رمزگذاری و از طریق یک سرور واسطه عبور می‌دهد. برای وای‌فای عمومی مفید است، اما شما را کاملاً ناشناس نمی‌کند و خود سرویس VPN باید قابل‌اعتماد باشد.</p><p>برخی افراد از VPN برای تغییر موقعیت مکانی ظاهری هم استفاده می‌کنند (مثلاً دیدن محتوای یک کشور دیگر)، اما این موضوع ربطی به امنیت ندارد و باید جدا از آن در نظر گرفته شود.</p>", "titleEn": "VPN", "subEn": "A virtual private network that encrypts your connection.", "bodyEn": "<p>A VPN encrypts your internet traffic and routes it through an intermediary server. It's useful on public Wi-Fi, but it doesn't make you completely anonymous, and the VPN service itself must be trustworthy.</p><p>Some people also use a VPN to change their apparent location (e.g. to view content from another country), but that's a separate use case unrelated to security.</p>"}, {"icon": "🧱", "title": "فایروال", "sub": "مانعی که ترافیک مشکوک را قبل از رسیدن به دستگاه شما فیلتر می‌کند.", "body": "<p>فایروال براساس قواعدی مشخص می‌کند چه ارتباطی اجازه ورود یا خروج دارد. سیستم‌عامل‌های امروزی فایروال داخلی دارند؛ بهتر است همیشه روشن بماند.</p><p>فایروال‌های سازمانی پیشرفته‌تر (NGFW) حتی می‌توانند محتوای بسته‌های داده را هم بررسی کنند تا الگوهای حمله شناخته‌شده را تشخیص دهند.</p>", "titleEn": "Firewall", "subEn": "A barrier that filters suspicious traffic before it reaches your device.", "bodyEn": "<p>A firewall decides, based on a set of rules, what traffic is allowed in or out. Modern operating systems have a built-in firewall — it's best to always leave it on.</p><p>More advanced enterprise firewalls (NGFWs) can even inspect packet content itself to detect known attack patterns.</p>"}, {"icon": "🔐", "title": "رمزنگاری", "sub": "تبدیل اطلاعات به شکلی که بدون کلید قابل خواندن نباشد.", "body": "<p>رمزنگاری داده را با یک الگوریتم و کلید به متن نامفهوم تبدیل می‌کند. قفل https در مرورگر و پیام‌رسان‌های «رمزنگاری سرتاسری» نمونه‌های روزمره آن هستند.</p><p>در رمزنگاری سرتاسری (end-to-end)، حتی خود شرکت ارائه‌دهنده سرویس هم نمی‌تواند محتوای پیام را بخواند؛ فقط فرستنده و گیرنده کلید رمزگشایی را دارند.</p>", "titleEn": "Encryption", "subEn": "Converting information into a form that can't be read without a key.", "bodyEn": "<p>Encryption uses an algorithm and a key to turn data into unreadable text. The https lock in your browser and \"end-to-end encrypted\" messaging apps are everyday examples.</p><p>In end-to-end encryption, not even the service provider itself can read the message content; only the sender and receiver hold the decryption key.</p>"}, {"icon": "🌊", "title": "حمله DDoS", "sub": "هجوم حجم زیادی درخواست برای از کار انداختن یک سرویس.", "body": "<p>در این حمله هزاران دستگاه آلوده هم‌زمان به یک سایت یا سرور درخواست می‌فرستند تا ظرفیت آن پر شود و کاربران واقعی نتوانند وارد شوند. سازمان‌ها با سرویس‌های محافظ و توزیع بار از خود دفاع می‌کنند.</p><p>این دستگاه‌های آلوده معمولاً بخشی از یک «بات‌نت» هستند — شبکه‌ای از رایانه‌ها و دستگاه‌های IoT هک‌شده که بدون اطلاع صاحبانشان در اختیار مهاجم قرار گرفته‌اند.</p>", "titleEn": "DDoS attack", "subEn": "A flood of requests meant to take a service down.", "bodyEn": "<p>Thousands of infected devices send requests to a site or server at the same time to overwhelm its capacity, so real users can't get through. Organizations defend against this with protective services and load distribution.</p><p>These infected devices are usually part of a \"botnet\" — a network of hacked computers and IoT devices controlled by the attacker without their owners' knowledge.</p>"}, {"icon": "", "title": "آیا آنتی‌ویروس برای امنیت کافی است؟", "sub": "", "body": "<p>نه. آنتی‌ویروس لایه‌ای مهم است، اما در برابر فیشینگ، رمزهای ضعیف یا فریب انسانی کاری نمی‌کند. امنیت واقعی ترکیبی از ابزار، به‌روزرسانی و آگاهی کاربر است.</p><p>آنتی‌ویروس بیشتر بدافزارهای شناخته‌شده را بر اساس امضا یا رفتار مشکوک شناسایی می‌کند، اما در برابر حمله‌ای که از طریق یک لینک جعلی رمز شما را می‌دزدد، هیچ کاری از دستش برنمی‌آید؛ چون هیچ فایل مخربی دانلود نشده است.</p><p><b>جمع‌بندی:</b> آنتی‌ویروس + رمزهای قوی و یکتا + تأیید دومرحله‌ای + به‌روزرسانی مداوم + دقت در کلیک کردن، یک لایه دفاعی کامل‌تر می‌سازند.</p>", "titleEn": "Is antivirus enough for security?", "subEn": "", "bodyEn": "<p>No. Antivirus is an important layer, but it does nothing against phishing, weak passwords, or human deception. Real security is a combination of tools, updates, and user awareness.</p><p>Antivirus mostly detects known malware based on signatures or suspicious behavior, but it can't do anything against an attack that steals your password through a fake link, since no malicious file was ever downloaded.</p><p><b>Bottom line:</b> antivirus + strong, unique passwords + two-factor authentication + staying updated + being careful what you click together build a much more complete defense.</p>"}, {"icon": "", "title": "هر چند وقت یک‌بار رمز را عوض کنم؟", "sub": "", "body": "<p>تغییر دوره‌ای اجباری لازم نیست؛ مهم این است که رمز طولانی و یکتا باشد. فقط اگر مشکوک به نشت اطلاعات شدید یا حساب هک شد، رمز را فوراً عوض کنید.</p><p>تغییر اجباری و مکرر رمز (مثلاً هر ماه) در عمل باعث می‌شود کاربران رمزهای ساده‌تر و قابل‌پیش‌بینی‌تری انتخاب کنند (مثل اضافه کردن یک عدد به انتهای رمز قبلی)، که نتیجه‌اش ضعیف‌تر شدن امنیت است، نه بهتر شدن آن.</p><p>برای اطلاع از نشت احتمالی رمزهایتان می‌توانید ایمیل خود را در سایت‌های معتبری مانند haveibeenpwned.com بررسی کنید.</p>", "titleEn": "How often should I change my password?", "subEn": "", "bodyEn": "<p>Forced periodic changes aren't necessary; what matters is that your password is long and unique. Only change it immediately if you suspect a leak or your account has been hacked.</p><p>Forcing frequent password changes (e.g. monthly) tends to push users toward simpler, more predictable passwords (like adding a number to the end of the old one), which actually weakens security rather than improving it.</p><p>To check whether your password may have leaked, you can look up your email on a trusted site like haveibeenpwned.com.</p>"}, {"icon": "", "title": "آیا مک و گوشی آیفون ویروس نمی‌گیرند؟", "sub": "", "body": "<p>این باور اشتباه است. این دستگاه‌ها معمولاً هدف کمتری هستند، اما بدافزار و فیشینگ روی همه سیستم‌ها وجود دارد. به‌روزرسانی و دقت در نصب برنامه برای همه لازم است.</p><p>دلیل اصلی هدف کمتر بودن مک و آیفون، سهم کمتر بازار و سیستم بسته‌تر اپل (نصب فقط از App Store) است، نه اینکه از نظر فنی غیرقابل‌نفوذ باشند. با رشد محبوبیت این دستگاه‌ها، حملات مخصوص آن‌ها هم افزایش یافته است.</p><p>فیشینگ و مهندسی اجتماعی روی هر دستگاهی، صرف‌نظر از برند، به همان اندازه مؤثر هستند.</p>", "titleEn": "Don't Macs and iPhones get viruses?", "subEn": "", "bodyEn": "<p>That's a misconception. These devices are usually targeted less often, but malware and phishing exist across all systems. Staying updated and careful about app installs matters for everyone.</p><p>The main reason Macs and iPhones are targeted less is their smaller market share and Apple's more closed ecosystem (installs only from the App Store), not that they're technically unbreakable. As these devices have grown in popularity, attacks aimed specifically at them have increased too.</p><p>Phishing and social engineering work just as well on any device, regardless of brand.</p>"}, {"icon": "", "title": "آیا قفل https یعنی سایت کاملاً امن است؟", "sub": "", "body": "<p>خیر. این قفل فقط می‌گوید ارتباط شما با سایت رمزگذاری شده است، نه اینکه صاحب سایت قابل‌اعتماد است. سایت‌های فیشینگ هم می‌توانند https داشته باشند.</p><p>گرفتن گواهی SSL (همان چیزی که قفل https را فعال می‌کند) امروزه رایگان و خودکار است، بنابراین یک مهاجم هم به‌راحتی می‌تواند برای سایت جعلی خود این قفل را بگیرد.</p><p><b>چه چیزی واقعاً مهم است؟</b> آدرس دقیق دامنه را بررسی کنید، نه فقط وجود قفل سبز رنگ کنار آن.</p>", "titleEn": "Does the https lock mean a site is fully safe?", "subEn": "", "bodyEn": "<p>No. That lock only means your connection to the site is encrypted — not that the site's owner is trustworthy. Phishing sites can have https too.</p><p>Getting an SSL certificate (what enables the https lock) is free and automatic these days, so an attacker can just as easily get that same lock for their fake site.</p><p><b>What actually matters?</b> Check the exact domain address itself, not just whether the green lock icon is there.</p>"}, {"icon": "", "title": "برای هر حساب یک رمز عبور طولانی و متفاوت بسازید و از مدیر رمز عبور استفاده کنید.", "sub": "", "body": "<p>اگر یک رمز را همه‌جا استفاده کنید، با لو رفتن یک سایت، همه حساب‌های شما در خطر می‌افتد (حمله «پر کردن اعتبارنامه»). طول رمز مهم‌تر از پیچیدگی آن است: یک عبارت طولانی ۱۴ کاراکتری یا بیشتر، مثل ترکیب چند کلمه نامرتبط، هم قوی است و هم قابل‌حفظ.</p><p>مدیر رمز عبور (مثل Bitwarden یا KeePass) رمزهای یکتا می‌سازد و امن نگه می‌دارد؛ شما فقط یک رمز اصلی قوی را به خاطر می‌سپارید. از تاریخ تولد، نام و شماره تلفن در رمز استفاده نکنید.</p>", "titleEn": "Use a long, unique password for every account, and use a password manager.", "subEn": "", "bodyEn": "<p>If you reuse one password everywhere, a single leaked site puts all your accounts at risk (a “credential stuffing” attack). Length matters more than complexity: a long passphrase of 14+ characters, like a few unrelated words combined, is both strong and memorable.</p><p>A password manager (like Bitwarden or KeePass) generates and securely stores unique passwords — you only need to remember one strong master password. Don't use birthdates, names, or phone numbers in your passwords.</p>"}, {"icon": "", "title": "تأیید هویت دو مرحله‌ای را روی ایمیل و شبکه‌های اجتماعی فعال کنید.", "sub": "", "body": "<p>در این روش علاوه بر رمز، به یک عامل دوم هم نیاز است؛ مثلاً کدی که از یک برنامه احراز هویت می‌آید. پس حتی اگر رمز شما لو برود، مهاجم بدون عامل دوم وارد نمی‌شود.</p><p>ترتیب امنیت از بیشتر به کمتر: کلید سخت‌افزاری، برنامه احراز هویت (Authenticator)، و در آخر پیامک (که در برابر کلاهبرداری سیم‌کارت آسیب‌پذیرتر است). ابتدا ایمیل اصلی را محافظت کنید، چون بازیابی بقیه حساب‌ها از طریق آن انجام می‌شود. کدهای پشتیبان را جای امنی ذخیره کنید.</p>", "titleEn": "Enable two-factor authentication on your email and social media.", "subEn": "", "bodyEn": "<p>This requires a second factor besides your password — like a code from an authenticator app. So even if your password leaks, the attacker can't get in without that second factor.</p><p>From most to least secure: a hardware security key, an authenticator app, and lastly SMS (more vulnerable to SIM-swap fraud). Protect your main email first, since it's used to recover your other accounts. Store backup codes somewhere safe.</p>"}, {"icon": "", "title": "قبل از کلیک روی هر لینک، آدرس فرستنده و سایت را با دقت بررسی کنید.", "sub": "", "body": "<p>روی لینک بروید و بدون کلیک، آدرس واقعی آن را ببینید (در موبایل، نگه داشتن انگشت). بررسی کنید دامنه دقیقاً درست باشد؛ مهاجمان از آدرس‌هایی شبیه اصل مثل جابه‌جا شدن یک حرف استفاده می‌کنند.</p><p>لینک‌های کوتاه‌شده و کدهای QR ناشناس را هم مشکوک بدانید. اگر پیامی ادعای فوریت دارد، از مسیر دیگری (تماس رسمی یا ورود مستقیم به سایت) صحت آن را بررسی کنید.</p>", "titleEn": "Before clicking any link, carefully check the sender's and the site's address.", "subEn": "", "bodyEn": "<p>Hover over a link without clicking to see its real address (on mobile, press and hold). Check that the domain is exactly correct — attackers use addresses that look almost identical to the real one, like a swapped letter.</p><p>Treat shortened links and unknown QR codes as suspicious too. If a message claims urgency, verify it through another channel (an official call or logging into the site directly).</p>"}, {"icon": "", "title": "سیستم‌عامل و برنامه‌ها را همیشه به‌روز نگه دارید.", "sub": "", "body": "<p>بسیاری از حمله‌ها از حفره‌های امنیتی شناخته‌شده‌ای سوءاستفاده می‌کنند که سازنده‌ها قبلاً برایشان وصله منتشر کرده‌اند. به‌روزرسانی نکردن یعنی در را برای حمله‌هایی که راه‌حلشان وجود دارد باز گذاشتن.</p><p>به‌روزرسانی خودکار را برای سیستم‌عامل، مرورگر و برنامه‌های مهم فعال کنید و نرم‌افزارهای قدیمی و بدون پشتیبانی را حذف کنید.</p>", "titleEn": "Always keep your operating system and apps updated.", "subEn": "", "bodyEn": "<p>Many attacks exploit known security holes that vendors have already released patches for. Not updating means leaving the door open to attacks that already have a fix.</p><p>Turn on automatic updates for your OS, browser, and important apps, and remove old, unsupported software.</p>"}, {"icon": "", "title": "از فایل‌های مهم خود به‌طور منظم نسخه پشتیبان تهیه کنید.", "sub": "", "body": "<p>قاعده ۳-۲-۱ را به خاطر بسپارید: حداقل سه نسخه از داده‌ها، روی دو نوع رسانه متفاوت، که یک نسخه آن در مکانی دیگر (مثلاً فضای ابری یا هارد خارج از منزل) باشد.</p><p>نسخه پشتیبان باید از سیستم اصلی جدا باشد، وگرنه باج‌افزار آن را هم قفل می‌کند. هر چند وقت یک‌بار بازیابی یک فایل را آزمایش کنید تا مطمئن شوید پشتیبان واقعاً کار می‌کند.</p>", "titleEn": "Back up your important files regularly.", "subEn": "", "bodyEn": "<p>Remember the 3-2-1 rule: at least three copies of your data, on two different types of media, with one copy stored in a different location (e.g. the cloud or an external drive kept elsewhere).</p><p>Your backup should be separate from the main system, otherwise ransomware will lock that too. Occasionally test restoring a file to make sure your backup actually works.</p>"}]
+;
+const home=document.getElementById('home'),pwpage=document.getElementById('pwpage'),detailpage=document.getElementById('detailpage'),quizpage=document.getElementById('quizpage'),checklistpage=document.getElementById('checklistpage');
+const dIcon=document.getElementById('dIcon'),dTitle=document.getElementById('dTitle'),dSub=document.getElementById('dSub'),dBody=document.getElementById('dBody');
+document.querySelectorAll('.cardlink').forEach(el=>{
+  const go=()=>{location.hash='d'+el.dataset.d};
+  el.addEventListener('click',go);
+  el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();go()}});
+});
+function showDetail(idx){
+  const d=DETAILS[idx];
+  if(!d)return;
+  const L=(typeof lang!=='undefined')?lang:'fa';
+  const title=L==='fa'?d.title:d.titleEn;
+  const sub=L==='fa'?d.sub:d.subEn;
+  const body=L==='fa'?d.body:d.bodyEn;
+  dIcon.textContent=d.icon;
+  dIcon.style.display=d.icon?'flex':'none';
+  dTitle.textContent=title;
+  dSub.textContent=sub||'';
+  dSub.style.display=sub?'block':'none';
+  dBody.innerHTML=body;
+  dBody.classList.remove('fade-up','in');
+  void dBody.offsetWidth;
+  dBody.classList.add('fade-up');
+  requestAnimationFrame(()=>requestAnimationFrame(()=>dBody.classList.add('in')));
+}
+function route(){
+  const h=location.hash.slice(1);
+  const isPw=h==='password';
+  const isQuiz=h==='quiz';
+  const isChecklist=h==='checklist';
+  const dMatch=/^d(\d+)$/.exec(h);
+  const isDetail=!!dMatch;
+  pwpage.hidden=!isPw;
+  detailpage.hidden=!isDetail;
+  quizpage.hidden=!isQuiz;
+  checklistpage.hidden=!isChecklist;
+  home.hidden=isPw||isDetail||isQuiz||isChecklist;
+  if(isDetail){showDetail(+dMatch[1]);window.scrollTo(0,0)}
+  else if(isPw||isQuiz||isChecklist)window.scrollTo(0,0);
+  else if(h){const el=document.getElementById(h);if(el)el.scrollIntoView()}
+  const navHash=(h===''?'home':h);
+  document.querySelectorAll('.navitem').forEach(a=>{a.classList.toggle('active',a.dataset.hash===navHash)});
+}
+window.addEventListener('hashchange',route);route();
+const pw=document.getElementById('pw'),fill=document.getElementById('fill'),msg=document.getElementById('msg');
+pw.addEventListener('input',()=>{
+const v=pw.value;let s=0;
+if(v.length>=8)s++;if(v.length>=12)s++;
+if(/[a-z]/.test(v)&&/[A-Z]/.test(v))s++;
+if(/\d/.test(v))s++;if(/[^A-Za-z0-9]/.test(v))s++;
+const curLang=(typeof lang!=='undefined')?lang:'fa';
+if(!v){fill.style.width='0';msg.textContent=MSG.waiting[curLang];return}
+const colors=['#e5484d','#e5484d','#f5a524','#7bc043','#2fb36d','#00b377'];
+const label=MSG.levels[curLang][s];
+fill.style.width=(s/5*100)+'%';fill.style.background=colors[s];
+msg.textContent=MSG.strengthPrefix[curLang]+label;
+});
+</script>
+<nav class="bottomnav" id="bottomNav">
+<a class="navitem" data-hash="home" href="#home">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>
+<span id="navHomeTxt">خانه</span>
+</a>
+<a class="navitem" data-hash="quiz" href="#quiz">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a6 6 0 00-4 10.5c.6.6 1 1.5 1 2.5h6c0-1 .4-1.9 1-2.5A6 6 0 0012 2z"/></svg>
+<span id="navQuizTxt">آزمون</span>
+</a>
+<a class="navitem navcenter" data-hash="password" href="#password">
+<span class="navicon" style="font-size:26px">🔑</span>
+<span id="navPwTxt">رمز عبور</span>
+</a>
+<a class="navitem" data-hash="checklist" href="#checklist">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l2 2 4-4"/><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M13 16h5"/></svg>
+<span id="navClTxt">چک‌لیست</span>
+</a>
+<a class="navitem" data-hash="h2Faq" href="#h2Faq">
+<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/><path d="M12 15.5v-.3c0-.5.3-.9.8-1.2.5-.3.9-.8.9-1.4a1.7 1.7 0 00-1.7-1.6 1.7 1.7 0 00-1.7 1.3"/><circle cx="12" cy="17.8" r=".1" fill="currentColor"/></svg>
+<span id="navFaqTxt">سؤالات</span>
+</a>
+</nav>
+</body>
+</html>
